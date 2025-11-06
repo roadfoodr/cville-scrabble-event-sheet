@@ -45,8 +45,15 @@ def save_events(events: List[Dict[str, str]]) -> None:
     """Save events back to TSV file, preserving order (new events appended at bottom)"""
     # Write to file (no sorting - new events stay at bottom)
     fieldnames = ['Date', 'Name', 'Time', 'Location', 'location_URL', 'Info', 'info_url']
+
+    # Ensure all events have all fields (fill missing with empty string)
+    for event in events:
+        for field in fieldnames:
+            if field not in event:
+                event[field] = ''
+
     with open(EVENTS_FILE, 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter='\t')
+        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter='\t', extrasaction='ignore')
         writer.writeheader()
         writer.writerows(events)
 
