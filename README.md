@@ -23,7 +23,26 @@ Or see https://github.com/astral-sh/uv for other installation methods.
 
 ### 2. Set API Key
 
-You need an Anthropic API key to use this tool:
+You need an Anthropic API key to use this tool. Get one at: https://console.anthropic.com/
+
+**Option A: Using .env file (recommended)**
+
+Create a `.env` file in the project directory:
+
+```bash
+echo 'ANTHROPIC_API_KEY=your-api-key-here' > .env
+```
+
+Or copy the example file and edit it:
+
+```bash
+cp .env.example .env
+# Then edit .env and add your key
+```
+
+**Option B: Environment variable**
+
+Export the key in your shell:
 
 ```bash
 export ANTHROPIC_API_KEY="your-api-key-here"
@@ -35,8 +54,6 @@ Or add it to your shell profile (.bashrc, .zshrc, etc.):
 echo 'export ANTHROPIC_API_KEY="your-api-key-here"' >> ~/.bashrc
 source ~/.bashrc
 ```
-
-Get an API key at: https://console.anthropic.com/
 
 ## Usage
 

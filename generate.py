@@ -14,6 +14,10 @@ from typing import List, Dict, Any
 
 import anthropic
 from dateutil.parser import parse as parse_date
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # File paths
 SCRIPT_DIR = Path(__file__).parent
