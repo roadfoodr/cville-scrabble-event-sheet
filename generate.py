@@ -42,22 +42,8 @@ def load_events() -> List[Dict[str, str]]:
 
 
 def save_events(events: List[Dict[str, str]]) -> None:
-    """Save events back to TSV file, sorted by date"""
-    # Sort by date
-    def parse_event_date(date_str: str) -> datetime:
-        """Parse date from M/D/YY format"""
-        try:
-            parts = date_str.split('/')
-            month, day, year = int(parts[0]), int(parts[1]), int(parts[2])
-            # Assume 20XX for years
-            full_year = 2000 + year
-            return datetime(full_year, month, day)
-        except:
-            return datetime.min
-
-    events.sort(key=lambda e: parse_event_date(e['Date']))
-
-    # Write to file
+    """Save events back to TSV file, preserving order (new events appended at bottom)"""
+    # Write to file (no sorting - new events stay at bottom)
     fieldnames = ['Date', 'Name', 'Time', 'Location', 'location_URL', 'Info', 'info_url']
     with open(EVENTS_FILE, 'w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter='\t')
@@ -179,7 +165,8 @@ def main():
         # Save back to file
         save_events(all_events)
 
-        print(f"\n✓ Successfully added {len(result['events'])} event(s) to {EVENTS_FILE}")
+        print(f"\n✓ Successfully added {len(result['events'])} event(s) to the bottom of {EVENTS_FILE}")
+        print('New events are appended at the bottom so you can easily see what was added.')
         print('You can now copy-paste the contents into your Google Sheet.')
 
     except Exception as error:

@@ -7,7 +7,7 @@ Natural language event row generator for Charlottesville Scrabble club events.
 - 🤖 Natural language command interface powered by Claude AI
 - 📅 Automatic date calculation for recurring events
 - 📋 TSV format for easy copy-paste to Google Sheets
-- 🔄 Auto-sorts events by date
+- ➕ Appends new events to bottom (preserves order, never edits existing rows)
 - 📝 Template-based event generation
 - ⚡ Fast setup with uv
 
@@ -133,8 +133,9 @@ The tool understands these recurring patterns:
 1. Run command to add events
 2. Review the output to confirm events
 3. Open `events.tsv` in a text editor
-4. Copy all contents
-5. Paste into your Google Sheet
+4. New events are always at the bottom (existing events never modified)
+5. Copy all contents
+6. Paste into your Google Sheet
 
 ## Customization
 
