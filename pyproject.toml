@@ -1,0 +1,9 @@
+[project]
+name = "cville-scrabble-event-generator"
+version = "1.0.0"
+description = "Natural language event row generator for Charlottesville Scrabble club"
+requires-python = ">=3.9"
+dependencies = [
+    "anthropic>=0.39.0",
+    "python-dateutil>=2.8.2",
+]

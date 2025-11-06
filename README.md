@@ -9,14 +9,17 @@ Natural language event row generator for Charlottesville Scrabble club events.
 - 📋 TSV format for easy copy-paste to Google Sheets
 - 🔄 Auto-sorts events by date
 - 📝 Template-based event generation
+- ⚡ Fast setup with uv
 
 ## Setup
 
-### 1. Install Dependencies
+### 1. Install uv (if not already installed)
 
 ```bash
-npm install
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+Or see https://github.com/astral-sh/uv for other installation methods.
 
 ### 2. Set API Key
 
@@ -37,37 +40,46 @@ Get an API key at: https://console.anthropic.com/
 
 ## Usage
 
-### Basic Command Format
+### Using uv run (recommended - no installation needed)
 
 ```bash
-node generate.js "<your natural language command>"
+uv run generate.py "<your natural language command>"
+```
+
+uv will automatically install dependencies on first run!
+
+### Using regular Python (after installing dependencies)
+
+```bash
+uv pip install -e .
+python generate.py "<your natural language command>"
 ```
 
 ### Example Commands
 
 **Add regular club events for a month:**
 ```bash
-node generate.js "add rows for December's club events"
+uv run generate.py "add rows for December's club events"
 ```
 
 **Add specific event types:**
 ```bash
-node generate.js "add library events for January 2025"
+uv run generate.py "add library events for January 2025"
 ```
 
 **Add 5th Friday events:**
 ```bash
-node generate.js "add 5th Friday event for January 2025"
+uv run generate.py "add 5th Friday event for January 2025"
 ```
 
 **Add a custom tournament:**
 ```bash
-node generate.js "add tournament on 12/15/24 called 'Winter Classic' at Jefferson School from 10am-5pm"
+uv run generate.py "add tournament on 12/15/24 called 'Winter Classic' at Jefferson School from 10am-5pm"
 ```
 
 **Mix and match:**
 ```bash
-node generate.js "add club events and library events for February 2025"
+uv run generate.py "add club events and library events for February 2025"
 ```
 
 ## Event Patterns
@@ -96,7 +108,8 @@ The tool understands these recurring patterns:
 
 - `events.tsv` - Main event data file (copy-paste to Google Sheets)
 - `rules.json` - Event templates and venue information
-- `generate.js` - Main script
+- `generate.py` - Main Python script
+- `pyproject.toml` - Python dependencies
 
 ## Workflow
 
@@ -146,6 +159,12 @@ Error: ANTHROPIC_API_KEY environment variable not set
 ```
 Solution: Set the environment variable as shown in Setup section.
 
+**uv not found**
+```
+command not found: uv
+```
+Solution: Install uv using the command in Setup section, or use pip/Python directly.
+
 **No events added**
 - Check your command phrasing
 - Make sure the month/dates are valid
@@ -165,3 +184,13 @@ Solution: Set the environment variable as shown in Setup section.
 - "add library events for the next 3 months"
 
 The AI will interpret your command and generate the appropriate events!
+
+## Why uv?
+
+uv is a blazingly fast Python package installer and resolver written in Rust. Benefits:
+
+- No need to manually install dependencies
+- Automatic virtual environment management
+- 10-100x faster than pip
+- Drop-in replacement for pip
+- `uv run` executes scripts with automatic dependency installation
