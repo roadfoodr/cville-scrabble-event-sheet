@@ -1,0 +1,67 @@
+{
+  "event_patterns": {
+    "club_events": {
+      "description": "Regular open gameplay sessions",
+      "schedule": "1st and 3rd Fridays of the month",
+      "template": {
+        "name": "Open gameplay",
+        "time": "5:30pm-8:30pm",
+        "location": "Wegmans 5th St",
+        "location_url": "https://www.google.com/maps/place/Wegmans/@38.0102463,-78.4995545,17.25z/data=!4m6!3m5!1s0x89b386735fb281d5:0x634f663ab6b9bb81!8m2!3d38.008758!4d-78.500588!16s%2Fg%2F11cs6fwqs0",
+        "info": "{nth} Friday",
+        "info_url": ""
+      }
+    },
+    "fifth_friday": {
+      "description": "Special 5th Friday events",
+      "schedule": "5th Friday of the month (when applicable)",
+      "template": {
+        "name": "Open gameplay",
+        "time": "5:30pm-8:30pm",
+        "location": "Fuzzy's Tacos",
+        "location_url": "https://www.google.com/maps/place/Fuzzy's+Taco+Shop/@38.0112086,-78.5041778,12.95z/data=!4m6!3m5!1s0x89b38673301a2629:0x747b4f5c0bc0c802!8m2!3d38.0105475!4d-78.498137!16s%2Fg%2F11g88cbvl9",
+        "info": "5th Friday",
+        "info_url": ""
+      }
+    },
+    "library_events": {
+      "description": "Scrabble at the Library events",
+      "schedule": "1st Wednesday of the month",
+      "template": {
+        "name": "Scrabble at the Library",
+        "time": "5:30pm-7pm",
+        "location": "Central Library",
+        "location_url": "https://www.google.com/maps/place/Jefferson-Madison+Regional+Library+Central+Branch/@38.0314297,-78.479936,15z/data=!4m6!3m5!1s0x89b386266f6efe67:0x183eeb62b71b5e80!8m2!3d38.0314297!4d-78.479936!16s%2Fm%2F02nlxcq",
+        "info": "presented with JMRL",
+        "info_url": "https://jmrl.org/calendar"
+      }
+    }
+  },
+  "venues": {
+    "wegmans": {
+      "name": "Wegmans 5th St",
+      "url": "https://www.google.com/maps/place/Wegmans/@38.0102463,-78.4995545,17.25z/data=!4m6!3m5!1s0x89b386735fb281d5:0x634f663ab6b9bb81!8m2!3d38.008758!4d-78.500588!16s%2Fg%2F11cs6fwqs0"
+    },
+    "fuzzys": {
+      "name": "Fuzzy's Tacos",
+      "url": "https://www.google.com/maps/place/Fuzzy's+Taco+Shop/@38.0112086,-78.5041778,12.95z/data=!4m6!3m5!1s0x89b38673301a2629:0x747b4f5c0bc0c802!8m2!3d38.0105475!4d-78.498137!16s%2Fg%2F11g88cbvl9"
+    },
+    "jefferson_school": {
+      "name": "Jefferson School",
+      "url": "https://www.google.com/maps/place/Jefferson+School+City+Center/@38.0316552,-78.4870228,15z/data=!4m6!3m5!1s0x89b3863ad6d1842f:0x6164c7d21ab78051!8m2!3d38.0316552!4d-78.4870228!16s%2Fm%2F0ynx0n6"
+    },
+    "walker_square": {
+      "name": "801 Walker Square",
+      "url": "https://www.google.com/maps/place/801+Walker+Square,+Charlottesville,+VA+22903/@38.0304795,-78.4913809,18z/data=!3m1!4b1!4m6!3m5!1s0x89b3863be8314cb7:0xe52f84d897f0da76!8m2!3d38.0307013!4d-78.4913548!16s%2Fg%2F11b8v68y7r"
+    },
+    "central_library": {
+      "name": "Central Library",
+      "url": "https://www.google.com/maps/place/Jefferson-Madison+Regional+Library+Central+Branch/@38.0314297,-78.479936,15z/data=!4m6!3m5!1s0x89b386266f6efe67:0x183eeb62b71b5e80!8m2!3d38.0314297!4d-78.479936!16s%2Fm%2F02nlxcq"
+    }
+  },
+  "notes": [
+    "Club events refer to the regular 1st and 3rd Friday open gameplay sessions",
+    "5th Friday events only occur in months with 5 Fridays",
+    "Tournaments are typically custom events with specific details"
+  ]
+}
