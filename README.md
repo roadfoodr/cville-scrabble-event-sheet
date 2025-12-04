@@ -1,6 +1,7 @@
 # Charlottesville Scrabble Event Generator
 
 Natural language event row generator for Charlottesville Scrabble club events.
+Repo created ~100% via Claude Code for Web
 
 ## Features
 
