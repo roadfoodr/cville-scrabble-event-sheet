@@ -1,6 +1,6 @@
 ---
 name: add-scrabble-events
-description: Generate Scrabble event rows for events.tsv from natural language commands. Use when the user requests adding events to the schedule, such as "add December's club events", "add library events for January", "add 5th Friday events", or "add tournament on 3/15/26". Interprets event types (club_events, library_events, fifth_friday, custom tournaments), calculates recurring dates (1st/3rd Fridays, 1st Wednesdays), and appends properly formatted TSV rows to events.tsv.
+description: Generate Scrabble event rows for events.tsv from natural language commands. Use when the user requests adding events to the schedule, such as "add December's club events", "add library events for January", "add 5th Friday events", or "add tournament on 3/15/26". Interprets event types (club_events, library_events, fifth_friday, custom tournaments), calculates recurring dates (1st/3rd Fridays, 1st Wednesdays), and appends properly formatted TSV rows to events.tsv. Also supports "rebuild" or "deploy" to trigger a site rebuild.
 ---
 
 # Add Scrabble Events
@@ -202,3 +202,18 @@ Added 2 events to events.tsv:
 ```
 
 Include the date, name, location, and any distinguishing info (like "1st Friday", "5th Friday", etc.) for each event.
+
+## Publish Workflow
+
+The site (cvillescrabble.club) reads from Google Sheets, not directly from events.tsv. After adding events:
+
+1. Remind the user to copy the updated events.tsv contents into Google Sheets
+2. Only after they confirm the sheet is updated, offer to trigger a rebuild:
+
+```bash
+bash .claude/skills/add-scrabble-events/scripts/rebuild-site.sh
+```
+
+This sends a POST request to the Render deploy hook, which triggers a rebuild that fetches the latest data from Google Sheets.
+
+When the user says "rebuild", "deploy", or "publish the site" directly, run the deploy script immediately (assume they've already updated the sheet).
