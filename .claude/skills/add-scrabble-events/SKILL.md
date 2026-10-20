@@ -45,8 +45,10 @@ Date format: `M/D/YY` (e.g., "12/4/26")
 Three recurring patterns are defined in `references/event-rules.json`:
 
 - **club_events**: 1st and 3rd Friday of the month at Wegmans 5th St (5:30pm-8:30pm)
-- **library_events**: 1st Wednesday of the month at Central Library (5:30pm-7pm)
-- **fifth_friday**: 5th Friday of the month at Fuzzy's Tacos (5:30pm-8:30pm) - only in applicable months
+- **fifth_friday**: 5th Friday of the month at Wegmans 5th St (5:30pm-8:30pm) - only in applicable months
+- **library_events**: 1st Wednesday of the month at Central Library (5:30pm-7pm) - **dormant**; only add when the user asks for library events by name, never as part of "all regular events"
+
+When adding club events for a month that has a 5th Friday, also add the 5th Friday event (or ask if unsure).
 
 For custom tournaments or one-off events, extract details from the user's command.
 
@@ -214,6 +216,6 @@ The site (cvillescrabble.club) reads from Google Sheets, not directly from event
 bash .claude/skills/add-scrabble-events/scripts/rebuild-site.sh
 ```
 
-This sends a POST request to the Render deploy hook, which triggers a rebuild that fetches the latest data from Google Sheets.
+This sends a POST request to the Render deploy hook, which triggers a rebuild that fetches the latest data from Google Sheets. The hook URL is read from `RENDER_DEPLOY_HOOK` in the gitignored `.env` at the repo root; if the script reports it missing, ask the user to create `.env` (never write the hook URL into a tracked file).
 
 When the user says "rebuild", "deploy", or "publish the site" directly, run the deploy script immediately (assume they've already updated the sheet).

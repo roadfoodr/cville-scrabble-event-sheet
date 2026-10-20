@@ -52,11 +52,12 @@ The tool understands these recurring patterns:
 
 ### 5th Friday Events
 - **Schedule**: 5th Friday (only in months with 5 Fridays)
-- **Venue**: Fuzzy's Tacos
+- **Venue**: Wegmans 5th St
 - **Time**: 5:30pm-8:30pm
 - **Name**: Open gameplay
 
-### Library Events
+### Library Events (dormant)
+- **Status**: Not currently running (last held Jan 2025); only added when explicitly requested
 - **Schedule**: 1st Wednesday of each month
 - **Venue**: Central Library
 - **Time**: 5:30pm-7pm
@@ -76,6 +77,17 @@ The tool understands these recurring patterns:
 4. New events are always at the bottom (existing events never modified)
 5. Copy all contents
 6. Paste into your Google Sheet
+7. Rebuild the site so it picks up the new sheet data: `just deploy`
+
+### Deploy setup
+
+`just deploy` POSTs to the Render deploy hook for cvillescrabble.club. The hook URL contains a secret key, so it lives in a gitignored `.env` at the repo root:
+
+```
+RENDER_DEPLOY_HOOK=https://api.render.com/deploy/srv-...?key=...
+```
+
+The hook URL is in the Render dashboard under the service's Settings → Deploy Hook.
 
 ## Customization
 
